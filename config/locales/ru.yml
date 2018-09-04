@@ -1,0 +1,29 @@
+ru:
+  shared:
+    header:
+      home: "Главная"
+      help: "Помощь"
+      log_in: "Авторизоваться"
+      users: "Пользователи"
+      albums: "Альбомы"
+      account: "Мой аккаунт"
+      profile: "Профиль"
+      settings: "Настройки"
+      log_out: "Выход"
+      photos: "Фотографии"
+      competitions: "Конкурсы"
+    album:
+      create: "Создать альбом"
+  main:
+    index:
+      signup: "Зарегистрироваться"
+  users:
+    show:
+      my_profile: "Мой профиль"
+    edit:
+      edit_user: "Редактировать профиль"
+  albums:
+    show:
+      album: "Альбом"
+    edit:
+      edit_album: "Редактировать альбом"

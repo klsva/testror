@@ -1,0 +1,12 @@
+= provide(:title, t('shared.header.albums'))
+
+.row
+  h1 = t('shared.header.albums')
+
+  = will_paginate
+
+  ul.albums
+    = render @albums
+  /@@albums - список объектов Albums, Rails автоматически перебирает ее
+      и отображает каждый элемент коллекции с помощью шаблона _album
+  = will_paginate

@@ -1,0 +1,21 @@
+/должно быть отображение общих результатов голосования в табличной форме по всем картинкам
+
+h1 Результаты голосования
+
+table.table.table-striped
+  thead
+    tr
+      th Фото
+      th Средняя оценка
+      th Проголосовало пользователей
+  tbody
+    - @photos.each do |photo|
+      tr
+        td
+          = image_tag photo.file_url, height: '100'
+        td = photo.values.average(:value)
+        td = photo.values.count
+
+br
+
+= link_to 'Голосовать еще', competitions_path

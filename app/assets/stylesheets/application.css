@@ -1,0 +1,141 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require _bootstrap
+ *= require font-awesome
+ *= require_tree .
+ *= require_self
+ *= require slick
+ *= require slick-theme
+ */
+
+/*my styles*/
+.down{
+    margin-top: 50px;
+}
+.half-down{
+    margin-top: 10px;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+
+}
+.footer p{
+    margin-top: 18px;
+}
+h1,h2,h3{
+    line-height: 1;
+}
+section.user_info{
+    margin-top: 20px;
+}
+.gravatar{
+    float: left;
+    margin-right: 10px;
+}
+.gravatar_edit{
+    margin-top: 15px;
+}
+li{
+  list-style-type: none;
+}
+.users li{
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid lightgray;
+}
+.user-link{
+    padding-left: 20px;
+}
+.albums{
+    list-style: none;
+    padding: 0;
+}
+.user{
+    margin-top: 5em;
+    padding-top: 0;
+}
+.timestamp{
+    color: lightgray;
+    display: block;
+    margin-left: 60 px;
+}
+.photo{
+
+}
+.stats{
+    overflow: auto;
+    margin-top: 5px;
+    padding: 0;
+}
+.stats a{
+    float: left;
+    padding: 0px 10px;
+    border-left: 1px solid lightgrey;
+    color: grey;
+}
+.photo-form{
+    margin-top: 5px;
+}
+.albums li{
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid lightgray;
+}
+.rating{
+
+}
+.line{
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+}
+.center{
+    display: block;
+    margin: 0 auto;
+}
+.carousel-caption{
+    padding-bottom: 0px;
+}
+.icon-right, .icon-left{
+    margin-top: 7.5em;
+}
+
+.rating label {
+    position: relative;
+    display: inline;
+    float: left;
+    padding-right: 15px;
+    z-index:1;
+    width:5px;
+    height:16px;
+}
+.rating input[type=radio] {
+    z-index: 2;
+    display: inline;
+    float: left;
+    margin-right: 15px;
+    width: 16px;
+    height: 16px;
+}

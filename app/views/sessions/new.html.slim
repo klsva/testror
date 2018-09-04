@@ -1,0 +1,23 @@
+= provide(:title, t('shared.header.log_in'))
+
+.row
+  h1 = t('shared.header.log_in')
+
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(:session, url: login_path) do |f|
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
+
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+
+      = f.label :remember_me, class: "checkbox inline" do
+        = f.check_box :remember_me
+        span
+          |Запомнить меня на этом компьютере
+
+      = f.submit t('shared.header.log_in'), class: "btn btn-primary"
+    p
+      | Еще не зарегистрированы?
+      = link_to t('main.index.signup'), signup_path

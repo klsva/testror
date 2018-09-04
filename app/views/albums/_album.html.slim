@@ -1,0 +1,37 @@
+li.down id="album-#{album.id}"
+  = link_to gravatar_for(album.user, size: 50), album.user
+  br
+    span.user
+      = link_to album.user.name, album.user
+  br
+    span.album-name
+      |Название альбома:
+      br
+      = link_to album.album_name, album
+  br
+    span.album-description
+      |Описание альбома:
+      br
+      = album.album_description
+  br
+    .photo
+      = image_tag album.photos.first.file_url if album.photos !=[]
+
+
+    span.timestamp
+      /| Альбом создан
+      /= time_ago_in_words(album.created_at)
+      /| назад.
+      br
+      = album.photos.count
+      |  фото в альбоме
+      br
+    = link_to 'Посмотреть альбом', album_path(album.id),  class: 'btn btn-link btn-xs'
+    - if current_user?(album.user)
+
+        = link_to 'Редактировать название и описание альбома',
+                edit_album_path(album.id), class: 'btn btn-link btn-xs'
+
+        = link_to 'Удалить альбом', album, method: :delete, class: 'btn btn-link btn-xs',
+                                  data: {confirm: 'Удалить альбом?'}
+

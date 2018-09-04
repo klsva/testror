@@ -1,0 +1,17 @@
+= provide(:title, t('albums.edit.edit_album'))
+
+.row
+  h1 = t('albums.edit.edit_album')
+
+.row
+  .col-md-6.col-md-offset-3
+    = form_for Album.find(params[:id]) do |f|
+      = render 'shared/error_message', object: f.object
+
+      = f.label :album_name, 'Название альбома'
+      = f.text_field :album_name, class: 'form-control'
+
+      = f.label :album_description, 'Описание альбома'
+      = f.text_area :album_description, class: 'form-control', placeholder: 'Опишите о чем ваш альбом...'
+
+      = f.submit 'Изменить альбом', class: 'btn btn-primary'

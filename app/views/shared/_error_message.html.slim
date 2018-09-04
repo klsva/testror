@@ -1,0 +1,9 @@
+- if object.errors.any?
+  #error_explanation
+    .alert.alert-danger
+      |  Форма содержит ошибки:
+      / =pluralize(@user.errors.count, "ошибка")
+    ul
+      - object.errors.full_messages.each do |msg|
+        li
+          = msg

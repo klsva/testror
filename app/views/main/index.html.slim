@@ -1,0 +1,20 @@
+= provide(:title, t('shared.header.home'))
+- if logged_in?
+  .row
+    aside.col-md-4
+      section.user-info
+        = render 'shared/user_info'
+      section.stats.down
+        = render 'shared/stats'
+      section.album-form.down
+        = render 'shared/album_form'
+    .col-md-8
+      h3 Альбомы
+      = render 'shared/feed'
+      /позже добавятся альбомы других пользователей
+- else
+  .row.center.jumbotron
+    h1 Добро пожаловать!
+    h2 Это главная страница приложения
+    = link_to image_tag('logo.png', alt: 'logo')
+    .btn.btn-primary = link_to t('.signup'), signup_path

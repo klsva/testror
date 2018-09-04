@@ -1,0 +1,38 @@
+
+.navbar.navbar-inverse.navbar-fixed-top[role="navigation"]
+  .container
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li.active =link_to 'Ruby-project', root_path
+        li = link_to t('.help'), help_path
+
+        - if logged_in?
+          li
+            = link_to t('.users'), users_path
+          li
+            = link_to t('.albums'), albums_path
+          li
+            = link_to t('.competitions'), competitions_path
+
+          li.dropdown
+            a.dropdown-toggle[href="#" data-toggle="dropdown"]
+              = t('.account')
+              b.caret
+            ul.dropdown-menu
+              li
+                = link_to t('.profile'), current_user
+              li
+                = link_to t('.settings'), edit_user_path(current_user)
+              li.divider
+              li
+                = link_to t('.log_out'), logout_path, method: 'delete'
+        - else
+          li
+            = link_to t('.log_in'), login_path
+
+        li = link_to 'RU', locale: :ru
+        li = link_to 'EN', locale: :en
+        b
+          = I18n.locale
+
+

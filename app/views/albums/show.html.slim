@@ -1,0 +1,46 @@
+= provide(:title, t('.album'))
+
+.row
+
+  - if @album.photos.any?
+
+
+    h3 = @album.album_name
+    .down
+      - if current_user?(@album.user)
+        = render 'shared/photo_form'
+    .all-photo.down
+      - @album.photos.each do |photo|
+        .row.line
+          .photo.col-md-8
+            = image_tag photo.file_url
+            - if current_user?(@album.user)
+              br
+              = link_to 'Удалить фотографию', album_path(@album.id,
+                      album: {photos_attributes: {id: photo.id, _destroy: true}}),
+                      remote: true, confirm: 'Really delete?', method: :put
+          .col-md-4
+            /Comments
+            /= render 'albums/comment_form'
+            = form_for :comment, url: comments_path, remote: true, html: {id: 'comment-form'}do |f|
+              = f.hidden_field :user_id, value: current_user.id
+              = f.hidden_field :photo_id, value: photo.id
+              = f.label :content, 'Твой коммент'
+              = f.text_area :content, class: 'form-control',
+                      placeholder: 'Нравится? - Скажи!'
+              .half-down
+                = f.submit 'Отправить', class: 'btn btn-s btn-primary'
+              /= render 'comments/index'
+
+  - else
+    .down
+      - if current_user?(@album.user)
+        |В альбоме еще нет фотографий. Хотите добавить?
+        .half-down
+        = render 'shared/photo_form'
+      - else
+        |В альбоме нет фотографий
+
+          /= link_to "Delete", question_path(question.id, пример
+              /question: { answers_attributes: { id: question.answers.id, "_destroy" => true }}),
+              /remote: true, confirm: "Really delete?", method: :put

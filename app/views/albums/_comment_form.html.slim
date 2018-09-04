@@ -1,0 +1,9 @@
+/надо получить id фото
+/ form_for :comment, url: comments_path, remote: true, html: {id: 'comment-form'}do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :photo_id, value: photo.id
+  = f.label :content, 'Твой коммент'
+  = f.text_area :content, class: 'form-control',
+          placeholder: 'Нравится? - Скажи!'
+  .half-down
+    = f.submit 'Отправить', class: 'btn btn-s btn-primary'

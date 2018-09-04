@@ -1,0 +1,8 @@
+= form_for :comment, url: album_path, remote: true, html: {id: 'comment-form'}do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :photo_id, value: @album.photos.ids
+
+  .field
+    = f.label :content
+    = f.text_area :content
+  .actions = f.submit

@@ -1,0 +1,29 @@
+.value-form
+  'Твой голос важен для участников.
+  'Поставь оценку, если фотография тебе нравится!
+
+  = form_for :value, url: values_path, html: {id: 'rating-form'} do |f|
+    .rating.half-down
+      = f.label 1, class: 'rate-label'
+      = f.radio_button :value, '1'
+
+      = f.label 2, class: 'rate-label'
+      = f.radio_button :value, '2'
+
+      = f.label 3, class: 'rate-label'
+      = f.radio_button :value, '3'
+
+      = f.label 4, class: 'rate-label'
+      = f.radio_button :value, '4'
+
+      = f.label 5, class: 'rate-label'
+      = f.radio_button :value, '5'
+
+      = f.hidden_field :user_id, value: current_user.id
+      .photo-id
+      /из js = f.hidden_field :photo_id
+      = f.submit 'Оценить', class: 'btn btn-primary'
+  .half-down
+    .album-id
+      /из js = link_to 'Посмотреть результаты голосования', '/results', class: "btn btn-xs btn-link"
+
